@@ -1,0 +1,119 @@
+{
+  "resource_desc": "ceh.idl.bbridge_loan_deal_target.ppkc",
+  "tags": [
+    "bbridge_loan_deal_target"
+  ],
+  "features": {
+    "domain": "IDL"
+  },
+  "metrics": {
+    "ppkc_actual_dttm": {
+      "id": "`:ppkc_actual_dttm",
+      "query": "[.last_sources[].conf.by_src | select(. != null) | .[] | to_entries | .[] | select(.key == \"ppkc_actual_dttm\" and .value != \"default_value\" and .value != null).value] | min",
+      "default": "default_value"
+    }
+  },
+  "resource_cd": "ceh.idl.bbridge_loan_deal_target.ppkc",
+  "is_readonly": false,
+  "is_deleted": false,
+  "datasets": [
+    {
+      "name": "bbridge_loan_deal_target",
+      "schema_name": "idl",
+      "filter": "",
+      "columns": [
+        {
+          "name": "deal_target_rk",
+          "type": "bigint",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "deal_rk",
+          "type": "bigint",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "effective_from_date",
+          "type": "date",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "effective_to_date",
+          "type": "date",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "loan_target_type_cd",
+          "type": "text",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "deal_target_sum",
+          "type": "numeric",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "currency_rk",
+          "type": "bigint",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "department_rk",
+          "type": "bigint",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "main_deal_target_flg",
+          "type": "boolean",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "okved_cd",
+          "type": "text",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "src_cd",
+          "type": "text",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "version_id",
+          "type": "bigint",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "deleted_flg",
+          "type": "boolean",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "hash_diff",
+          "type": "text",
+          "primary_key": false,
+          "nullable": false
+        }
+      ],
+      "physical_options": "",
+      "actual_dttm": null
+    }
+  ],
+  "state": {
+    "version": {
+      "version_id": 0
+    }
+  }
+}

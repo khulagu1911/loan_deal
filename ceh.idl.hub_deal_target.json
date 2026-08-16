@@ -1,0 +1,87 @@
+{
+    "resource_desc": "Таблица hub_deal_target (IDL)",
+    "tags": [
+        "hub",
+        "deal_target",
+        "hub_deal_fee"
+    ],
+    "features": {
+        "domain": "IDL",
+        "source_system": "RTLL"
+    },
+    "metrics": {
+        "rtll_actual_dttm": {
+            "id": "ceh.idl.hub_deal_target:rtll_actual_dttm",
+            "query": "[.last_sources[].conf.by_src | select(. != null) | .[] | to_entries | .[] | select(.key == \"rtll_actual_dttm\" and .value != \"default_value\" and .value != null).value] | min",
+            "default": "default_value"
+        },
+        "acpd_actual_dttm": {
+            "id": "ceh.idl.hub_deal_target:acpd_actual_dttm",
+            "query": "[.last_sources[].conf.by_src | select(. != null) | .[] | to_entries | .[] | select(.key == \"acpd_actual_dttm\" and .value != \"default_value\" and .value != null).value] | min",
+            "default": "default_value"
+        },
+        "kih_actual_dttm": {
+            "id": "ceh.idl.hub_deal_target:kih_actual_dttm",
+            "query": "[.last_sources[].conf.by_src | select(. != null) | .[] | to_entries | .[] | select(.key == \"kih_actual_dttm\" and .value != \"default_value\" and .value != null).value] | min",
+            "default": "default_value"
+        },
+        "crer_actual_dttm": {
+            "id": "ceh.idl.hub_deal_target:crer_actual_dttm",
+            "query": "[.last_sources[].conf.by_src | select(. != null) | .[] | to_entries | .[] | select(.key == \"crer_actual_dttm\" and .value != \"default_value\" and .value != null).value] | min",
+            "default": "default_value"
+        },
+        "cftm_actual_dttm": {
+            "id": "ceh.idl.hub_deal_target:cftm_actual_dttm",
+            "query": "[.last_sources[].conf.by_src | select(. != null) | .[] | to_entries | .[] | select(.key == \"cftm_actual_dttm\" and .value != \"default_value\" and .value != null).value] | min",
+            "default": "default_value"
+        },
+        "ppkc_actual_dttm": {
+            "id": "ceh.idl.hub_deal_target:ppkc_actual_dttm",
+            "query": "[.last_sources[].conf.by_src | select(. != null) | .[] | to_entries | .[] | select(.key == \"ppkc_actual_dttm\" and .value != \"default_value\" and .value != null).value] | min",
+            "default": "default_value"
+        }
+    },
+    "resource_cd": "ceh.idl.hub_deal_target",
+    "is_readonly": false,
+    "is_deleted": false,
+    "datasets": [
+        {
+            "name": "hub_deal_target",
+            "schema_name": "idl",
+            "filter": "",
+            "columns": [
+                {
+                    "name": "version_id",
+                    "type": "bigint",
+                    "primary_key": false,
+                    "nullable": false
+                },
+                {
+                    "name": "bk_schema_cd",
+                    "type": "text",
+                    "primary_key": false,
+                    "nullable": false
+                },
+                {
+                    "name": "src_cd",
+                    "type": "text",
+                    "primary_key": false,
+                    "nullable": false
+                },
+                {
+                    "name": "deal_target_id",
+                    "type": "text",
+                    "primary_key": false,
+                    "nullable": false
+                },
+                {
+                    "name": "deal_target_rk",
+                    "type": "bigint",
+                    "primary_key": true,
+                    "nullable": false
+                }
+            ],
+            "physical_options": ""
+        }
+    ]
+} 
